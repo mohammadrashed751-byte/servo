@@ -15,11 +15,10 @@ class ScreenChooseAccount extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
-
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: responsiveHeight(context, 80),),
+            SizedBox(height: responsiveHeight(context, 80)),
 
             Text(
               'Choose the account type that suits you',
@@ -30,7 +29,7 @@ class ScreenChooseAccount extends StatelessWidget {
               'Please select an account type to continue',
               style: AppTextStyles.textTheme.displaySmall?.copyWith(
                 color: AppColors.textSecondary,
-              )
+              ),
             ),
             SizedBox(height: responsiveHeight(context, 80)),
             SizedBox(
@@ -40,7 +39,7 @@ class ScreenChooseAccount extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>  RegisterScreen(),
+                      builder: (context) => const RegisterScreen(),
                     ),
                   );
                 },
@@ -57,8 +56,9 @@ class ScreenChooseAccount extends StatelessWidget {
                       'User Account',
                       style: AppTextStyles.textTheme.bodyMedium?.copyWith(
                         color: AppColors.surface,
-                      ),                    ),
-                     SizedBox(width: responsiveWidth(context, 8)),
+                      ),
+                    ),
+                    SizedBox(width: responsiveWidth(context, 8)),
                     const Icon(Icons.arrow_forward, color: AppColors.surface),
                   ],
                 ),
@@ -70,10 +70,7 @@ class ScreenChooseAccount extends StatelessWidget {
               child: FilledButton(
                 onPressed: () {},
                 style: FilledButton.styleFrom(
-                  side: const BorderSide(
-                    color: AppColors.border,
-                    width: 1,
-                  ),
+                  side: const BorderSide(color: AppColors.border, width: 1),
                   backgroundColor: AppColors.surface,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -86,9 +83,13 @@ class ScreenChooseAccount extends StatelessWidget {
                       'Company Account',
                       style: AppTextStyles.textTheme.bodyMedium?.copyWith(
                         color: AppColors.textPrimary,
-                      ),                    ),
+                      ),
+                    ),
                     SizedBox(width: responsiveWidth(context, 8)),
-                    const Icon(Icons.arrow_forward, color: AppColors.textPrimary),
+                    const Icon(
+                      Icons.arrow_forward,
+                      color: AppColors.textPrimary,
+                    ),
                   ],
                 ),
               ),

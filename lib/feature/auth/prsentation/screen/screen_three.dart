@@ -5,6 +5,7 @@ import 'package:servo/feature/auth/prsentation/screen/screen_choose_account.dart
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../widgets/onboarding_page_indicator.dart';
 
 class ScreenThree extends StatelessWidget {
   const ScreenThree({super.key});
@@ -68,14 +69,7 @@ class ScreenThree extends StatelessWidget {
 
                       const Spacer(),
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _dot(isActive: false),
-                          _dot(isActive: false),
-                          _dot(isActive: true),
-                        ],
-                      ),
+                      const OnboardingPageIndicator(activeIndex: 2),
                       SizedBox(height: responsiveHeight(context, 30)),
                       SizedBox(
                         height: responsiveHeight(context, 56),
@@ -86,7 +80,7 @@ class ScreenThree extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                const ScreenChooseAccount(),
+                                    const ScreenChooseAccount(),
                               ),
                             );
                           },
@@ -98,9 +92,7 @@ class ScreenThree extends StatelessWidget {
                           ),
                           child: Text(
                             'Get Started',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall
+                            style: Theme.of(context).textTheme.headlineSmall
                                 ?.copyWith(color: AppColors.surface),
                           ),
                         ),
@@ -112,19 +104,6 @@ class ScreenThree extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _dot({required bool isActive}) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      width: isActive ? 20 : 8,
-      height: 8,
-      decoration: BoxDecoration(
-        color: isActive ? AppColors.primary : AppColors.border,
-        borderRadius: BorderRadius.circular(4),
       ),
     );
   }

@@ -10,6 +10,21 @@ class AppTextStyles {
     fontWeight: FontWeight.w800,
     color: AppColors.textPrimary,
   );
+  static final TextStyle heavyTitle4 = GoogleFonts.poppins(
+    fontSize: 15,
+    fontWeight: FontWeight.w800,
+    color: AppColors.textPrimary,
+  );
+  static final TextStyle heavyTitle2 = GoogleFonts.poppins(
+    fontSize: 30,
+    fontWeight: FontWeight.w800,
+    color: AppColors.dodgerBlue,
+  );
+  static final TextStyle heavyTitle3 = GoogleFonts.poppins(
+    fontSize: 23,
+    fontWeight: FontWeight.w800,
+    color: AppColors.textPrimary,
+  );
   static final TextStyle heavyTitle1 = GoogleFonts.poppins(
     fontSize: 26,
     fontWeight: FontWeight.w800,

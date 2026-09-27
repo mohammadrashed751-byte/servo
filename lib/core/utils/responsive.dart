@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 ///
 /// Returns a double value for the responsive height.
 double responsiveHeight(
-    BuildContext context,
-    double value, {
-      double baseHeight = 932,
-    }) {
+  BuildContext context,
+  double value, {
+  double baseHeight = 932,
+}) {
   double screenHeight = MediaQuery.of(context).size.height;
   return (value / baseHeight) * screenHeight;
 }
@@ -24,10 +24,10 @@ double responsiveHeight(
 ///
 /// Returns a double value for the responsive width.
 double responsiveWidth(
-    BuildContext context,
-    double value, {
-      double baseWidth = 430,
-    }) {
+  BuildContext context,
+  double value, {
+  double baseWidth = 430,
+}) {
   double screenWidth = MediaQuery.of(context).size.width;
   return (value / baseWidth) * screenWidth;
 }

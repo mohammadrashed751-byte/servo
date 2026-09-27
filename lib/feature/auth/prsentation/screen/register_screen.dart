@@ -31,14 +31,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool get _confirmationIsValid {
     return AppValidators.password(_passwordController.text) == null &&
         AppValidators.confirmPassword(
-          _confirmPasswordController.text,
-          _passwordController.text,
-        ) ==
+              _confirmPasswordController.text,
+              _passwordController.text,
+            ) ==
             null;
   }
 
   void _refreshPasswordState(String value) {
-
     setState(() {});
   }
 
@@ -51,7 +50,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (!(_formKey.currentState?.validate() ?? false)) {
       return;
     }
-
 
     Navigator.push(
       context,
@@ -283,7 +281,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: Text.rich(
                                   TextSpan(
                                     text:
-                                    'By creating an account, you agree to our\n',
+                                        'By creating an account, you agree to our\n',
                                     style: Theme.of(
                                       context,
                                     ).textTheme.bodySmall,
@@ -294,8 +292,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                             .textTheme
                                             .bodySmall
                                             ?.copyWith(
-                                          color: AppColors.primary,
-                                        ),
+                                              color: AppColors.primary,
+                                            ),
                                       ),
                                     ],
                                   ),

@@ -35,7 +35,6 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final manualError = validator == null ? errorText : null;
     final showSuccess = isValid && manualError == null;
 
@@ -45,8 +44,8 @@ class AppTextField extends StatelessWidget {
       autovalidateMode: validateMode,
       style: showSuccess
           ? Theme.of(
-        context,
-      ).textTheme.bodyLarge?.copyWith(color: AppColors.success)
+              context,
+            ).textTheme.bodyLarge?.copyWith(color: AppColors.success)
           : Theme.of(context).textTheme.bodyLarge,
       keyboardType: keyboardType,
       obscureText: obscureText,

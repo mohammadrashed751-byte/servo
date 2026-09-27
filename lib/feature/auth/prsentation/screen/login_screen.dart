@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:servo/feature/auth/prsentation/screen/register_screen.dart';
 
+import '../../../../core/shell/main_shell.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/responsive.dart';
@@ -23,7 +24,6 @@ class _LoginScreenState extends State<LoginScreen> {
   bool hidePassword = true;
   bool rememberMe = false;
   bool _hasSubmitted = false;
-
   void _submit() {
     FocusScope.of(context).unfocus();
     setState(() {
@@ -33,7 +33,10 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!(_formKey.currentState?.validate() ?? false)) {
       return;
     }
-
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const MainShell()),
+    );
   }
 
   @override
@@ -84,18 +87,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   AppTextField(
                     labelText: 'Email Address',
+                    keyboardType: TextInputType.emailAddress,
                     controller: _emailController,
                     validator: AppValidators.email,
                     validateMode: AutovalidateMode.onUserInteraction,
-                    keyboardType: TextInputType.emailAddress,
                   ),
                   SizedBox(height: responsiveHeight(context, 30)),
 
                   AppTextField(
                     labelText: 'Password',
                     controller: _passwordController,
-
-                    validator: AppValidators.loginPassword,
+                    validator: AppValidators.password,
                     validateMode: AutovalidateMode.onUserInteraction,
                     obscureText: hidePassword,
                     autocorrect: false,
@@ -142,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                  const ForgotPasswordScreen(),
+                                      const ForgotPasswordScreen(),
                                 ),
                               );
                             },

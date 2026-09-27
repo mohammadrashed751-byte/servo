@@ -4,7 +4,4 @@ class AppAssets {
   static const String authHeader = 'assets/images/Frame.png';
   static const String authHeader2 = 'assets/images/Layer.png';
   static const String authHeader3 = 'assets/images/OBJECTS.png';
-  static const logo= 'assets/images/logo.png';
-
-
 }

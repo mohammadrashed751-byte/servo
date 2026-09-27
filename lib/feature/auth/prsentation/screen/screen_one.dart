@@ -5,6 +5,7 @@ import 'package:servo/feature/auth/prsentation/screen/screen_two.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../widgets/onboarding_page_indicator.dart';
 
 class ScreenOne extends StatelessWidget {
   const ScreenOne({super.key});
@@ -84,14 +85,7 @@ class ScreenOne extends StatelessWidget {
 
                       const Spacer(),
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _dot(isActive: true),
-                          _dot(isActive: false),
-                          _dot(isActive: false),
-                        ],
-                      ),
+                      const OnboardingPageIndicator(activeIndex: 0),
                       SizedBox(height: responsiveHeight(context, 30)),
                       SizedBox(
                         height: responsiveHeight(context, 56),
@@ -125,19 +119,6 @@ class ScreenOne extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _dot({required bool isActive}) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      width: isActive ? 20 : 8,
-      height: 8,
-      decoration: BoxDecoration(
-        color: isActive ? AppColors.primary : AppColors.border,
-        borderRadius: BorderRadius.circular(4),
       ),
     );
   }

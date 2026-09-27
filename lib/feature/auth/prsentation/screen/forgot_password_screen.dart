@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:servo/feature/auth/prsentation/screen/reset_email_screen.dart';
 
@@ -7,15 +6,8 @@ import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/responsive.dart';
 import '../widgets/app_text_field.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
+class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
-
-  @override
-  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
-}
-
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +49,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
                 SizedBox(height: responsiveHeight(context, 30)),
 
-
-
-
-
-
                 SizedBox(
                   height: responsiveHeight(context, 66),
                   width: responsiveWidth(context, 370),
@@ -82,15 +69,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     ),
                     child: Text(
                       'Reset Password',
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headlineSmall
+                      style: Theme.of(context).textTheme.headlineSmall
                           ?.copyWith(color: AppColors.surface),
                     ),
                   ),
                 ),
-
               ],
             ),
           ),
@@ -99,4 +82,3 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     );
   }
 }
-

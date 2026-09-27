@@ -4,6 +4,7 @@ import 'package:servo/feature/auth/prsentation/screen/screen_three.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../widgets/onboarding_page_indicator.dart';
 import '../../../../core/utils/responsive.dart';
 
 class ScreenTwo extends StatelessWidget {
@@ -79,19 +80,11 @@ class ScreenTwo extends StatelessWidget {
                         'Browse services, choose the best provider,\n and book your preferred time instantly.',
                         style: Theme.of(context).textTheme.bodyMedium,
                         textAlign: TextAlign.center,
-
                       ),
 
                       const Spacer(),
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _dot(isActive: false),
-                          _dot(isActive: true),
-                          _dot(isActive: false),
-                        ],
-                      ),
+                      const OnboardingPageIndicator(activeIndex: 1),
                       SizedBox(height: responsiveHeight(context, 30)),
                       SizedBox(
                         height: responsiveHeight(context, 56),
@@ -125,19 +118,6 @@ class ScreenTwo extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _dot({required bool isActive}) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      width: isActive ? 20 : 8,
-      height: 8,
-      decoration: BoxDecoration(
-        color: isActive ? AppColors.primary : AppColors.border,
-        borderRadius: BorderRadius.circular(4),
       ),
     );
   }

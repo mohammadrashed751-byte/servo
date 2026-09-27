@@ -42,12 +42,14 @@ class AppValidators {
     }
     return null;
   }
+
   static String? loginPassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your password';
     }
     return null;
   }
+
   static String? password(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Please enter a password';
