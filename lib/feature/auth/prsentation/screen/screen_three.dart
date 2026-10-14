@@ -5,7 +5,7 @@ import 'package:servo/feature/auth/prsentation/screen/screen_choose_account.dart
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../widgets/onboarding_page_indicator.dart';
+import '../../../../core/widgets/onboarding_page_indicator.dart';
 
 class ScreenThree extends StatelessWidget {
   const ScreenThree({super.key});
@@ -22,8 +22,7 @@ class ScreenThree extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: responsiveHeight(context, 450),
                 decoration: const BoxDecoration(
                   color: AppColors.primary,
                   borderRadius: BorderRadius.only(
@@ -38,7 +37,6 @@ class ScreenThree extends StatelessWidget {
                         top: responsiveHeight(context, 81),
                         left: responsiveWidth(context, 10),
                         right: responsiveWidth(context, 10),
-                        bottom: responsiveHeight(context, 50),
                       ),
                       child: Image.asset(
                         AppAssets.authHeader,
@@ -49,7 +47,7 @@ class ScreenThree extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: responsiveHeight(context, 30)),
+              SizedBox(height: responsiveHeight(context, 40)),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),

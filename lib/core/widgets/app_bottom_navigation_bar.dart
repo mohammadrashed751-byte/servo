@@ -2,32 +2,34 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 
+class AppNavigationItem {
+  final IconData icon;
+  final String label;
+
+  const AppNavigationItem({required this.icon, required this.label});
+}
+
 class AppBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
+  final List<AppNavigationItem> items;
 
   const AppBottomNavigationBar({
     super.key,
     required this.currentIndex,
     required this.onTap,
+    this.items = const [
+      AppNavigationItem(icon: Icons.home_rounded, label: 'Home'),
+      AppNavigationItem(icon: Icons.description_rounded, label: 'Bookings'),
+      AppNavigationItem(icon: Icons.chat_rounded, label: 'Messages'),
+      AppNavigationItem(icon: Icons.person_rounded, label: 'Profile'),
+    ],
   });
-
-  static const List<IconData> _icons = [
-    Icons.home_rounded,
-    Icons.description_rounded,
-    Icons.chat_rounded,
-    Icons.person_rounded,
-  ];
-
-  static const List<String> _labels = [
-    'Home',
-    'Bookings',
-    'Messages',
-    'Profile',
-  ];
 
   @override
   Widget build(BuildContext context) {
+    assert(items.length >= 2);
+    assert(currentIndex >= 0 && currentIndex < items.length);
     return ColoredBox(
       color: AppColors.surface,
       child: Column(
@@ -39,7 +41,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                   .clamp(0.75, 1.2)
                   .toDouble();
 
-              final itemWidth = constraints.maxWidth / _icons.length;
+              final itemWidth = constraints.maxWidth / items.length;
               final circleSize = 68 * scale;
 
               final labelHeight =
@@ -50,7 +52,7 @@ class AppBottomNavigationBar extends StatelessWidget {
               final isRtl = Directionality.of(context) == TextDirection.rtl;
 
               final visualIndex = isRtl
-                  ? _icons.length - 1 - currentIndex
+                  ? items.length - 1 - currentIndex
                   : currentIndex;
 
               return TweenAnimationBuilder<double>(
@@ -89,7 +91,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
-                                  _icons[currentIndex],
+                                  items[currentIndex].icon,
                                   color: AppColors.primary,
                                   size: 32 * scale,
                                 ),
@@ -100,14 +102,14 @@ class AppBottomNavigationBar extends StatelessWidget {
 
                         Positioned.fill(
                           child: Row(
-                            children: List.generate(_icons.length, (index) {
+                            children: List.generate(items.length, (index) {
                               final isSelected = currentIndex == index;
 
                               return Expanded(
                                 child: Semantics(
                                   button: true,
                                   selected: isSelected,
-                                  label: _labels[index],
+                                  label: items[index].label,
                                   child: GestureDetector(
                                     behavior: HitTestBehavior.opaque,
                                     onTap: () => onTap(index),
@@ -119,7 +121,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                                             Positioned(
                                               top: 53 * scale,
                                               child: Icon(
-                                                _icons[index],
+                                                items[index].icon,
                                                 color: AppColors.surface,
                                                 size: 26 * scale,
                                               ),
@@ -130,7 +132,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                                               left: 2,
                                               right: 2,
                                               child: Text(
-                                                _labels[index],
+                                                items[index].label,
                                                 textAlign: TextAlign.center,
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,

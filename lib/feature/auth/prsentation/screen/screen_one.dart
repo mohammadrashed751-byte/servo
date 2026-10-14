@@ -5,7 +5,7 @@ import 'package:servo/feature/auth/prsentation/screen/screen_two.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../widgets/onboarding_page_indicator.dart';
+import '../../../../core/widgets/onboarding_page_indicator.dart';
 
 class ScreenOne extends StatelessWidget {
   const ScreenOne({super.key});
@@ -18,13 +18,11 @@ class ScreenOne extends StatelessWidget {
         top: false,
         child: Padding(
           padding: const EdgeInsets.only(bottom: 24),
-
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: responsiveHeight(context, 450),
                 decoration: const BoxDecoration(
                   color: AppColors.primary,
                   borderRadius: BorderRadius.only(
@@ -36,7 +34,7 @@ class ScreenOne extends StatelessWidget {
                   children: [
                     Positioned(
                       top: responsiveHeight(context, 38),
-                      right: 16,
+                      right: responsiveWidth(context, 16),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.warning,
@@ -63,7 +61,7 @@ class ScreenOne extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: responsiveHeight(context, 30)),
+              SizedBox(height: responsiveHeight(context, 40)),
 
               Expanded(
                 child: Padding(
@@ -76,10 +74,12 @@ class ScreenOne extends StatelessWidget {
                         style: AppTextStyles.heavyTitle1,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: responsiveHeight(context, 30)),
+                      SizedBox(height: responsiveHeight(context, 20)),
                       Text(
                         'Find trusted service providers and book\nappointments in just a few steps.',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppColors.textSecondary,
+                        ),
                         textAlign: TextAlign.center,
                       ),
 

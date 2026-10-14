@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'login_screen.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/responsive.dart';
-import 'new_password_screen.dart';
 
 class ResetEmailScreen extends StatelessWidget {
   const ResetEmailScreen({super.key});
@@ -35,7 +35,7 @@ class ResetEmailScreen extends StatelessWidget {
                 Text('Reset email sent', style: AppTextStyles.heavyTitle),
                 SizedBox(height: responsiveHeight(context, 16)),
                 Text(
-                  'We have sent all required \n instructions details to your \n mail',
+                  'If an account matches this email, you will receive a password reset link. Check your inbox and spam folder, then open the link to continue.',
                   style: AppTextStyles.textTheme.bodyLarge?.copyWith(
                     color: AppColors.textSecondary,
                   ),
@@ -50,17 +50,16 @@ class ResetEmailScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: responsiveWidth(context, 30),
-            vertical: 16,
+            vertical: responsiveHeight(context, 16),
           ),
           child: SizedBox(
             height: responsiveHeight(context, 56),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const NewPasswordScreen(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  (route) => false,
                 );
               },
               style: OutlinedButton.styleFrom(

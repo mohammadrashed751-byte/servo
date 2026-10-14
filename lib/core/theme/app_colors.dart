@@ -22,7 +22,7 @@ class AppColors {
   static const Color textSecondary = Color(0xFF8E8E93);
 
   static const Color border = Color(0xFFE0E0E0);
-
+  static const Color pending = Color(0xFFFFB915);
   static const Color headerBackground = Color(0xFF1A1A2E);
   static const Color headerBorder = Color(0xFF1E90FF);
 }
