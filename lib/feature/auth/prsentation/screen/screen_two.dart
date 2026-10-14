@@ -4,7 +4,7 @@ import 'package:servo/feature/auth/prsentation/screen/screen_three.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../widgets/onboarding_page_indicator.dart';
+import '../../../../core/widgets/onboarding_page_indicator.dart';
 import '../../../../core/utils/responsive.dart';
 
 class ScreenTwo extends StatelessWidget {
@@ -22,8 +22,7 @@ class ScreenTwo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.5,
+                height:responsiveHeight(context, 450),
                 decoration: const BoxDecoration(
                   color: AppColors.primary,
                   borderRadius: BorderRadius.only(
@@ -52,7 +51,6 @@ class ScreenTwo extends StatelessWidget {
                         top: responsiveHeight(context, 108),
                         left: responsiveWidth(context, 30),
                         right: responsiveWidth(context, 30),
-                        bottom: responsiveHeight(context, 62),
                       ),
                       child: Image.asset(
                         AppAssets.authHeader3,
@@ -63,7 +61,7 @@ class ScreenTwo extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: responsiveHeight(context, 30)),
+              SizedBox(height: responsiveHeight(context, 40)),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -75,10 +73,12 @@ class ScreenTwo extends StatelessWidget {
                         style: AppTextStyles.heavyTitle1,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: responsiveHeight(context, 30)),
+                      SizedBox(height: responsiveHeight(context, 20)),
                       Text(
                         'Browse services, choose the best provider,\n and book your preferred time instantly.',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppColors.textSecondary,
+                        ),
                         textAlign: TextAlign.center,
                       ),
 

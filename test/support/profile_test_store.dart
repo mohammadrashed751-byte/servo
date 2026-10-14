@@ -16,6 +16,12 @@ class TestProfilePreferences extends Fake implements SharedPreferencesAsync {
   }
 
   @override
+  Future<void> remove(String key) async {
+    if (failWrite) throw StateError('Remove failed');
+    values.remove(key);
+  }
+
+  @override
   Future<void> setString(String key, String value) async {
     if (failWrite) throw StateError('Write failed');
     writes++;

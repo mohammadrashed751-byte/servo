@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:servo/feature/account/data/datasources/profile_local_store.dart';
-import 'package:servo/feature/account/data/models/user_profile.dart';
-import 'package:servo/feature/account/presentation/screen/edit_profile_screen.dart';
-import 'package:servo/main.dart';
+import 'package:servo/feature/user_account/account/data/datasources/profile_local_store.dart';
+import 'package:servo/feature/user_account/account/data/models/user_profile.dart';
+import 'package:servo/feature/user_account/account/presentation/screen/edit_profile_screen.dart';
+import 'package:servo/feature/user_account/account/presentation/screen/profile_screen.dart';
 
 import '../support/profile_test_store.dart';
 
@@ -18,7 +18,11 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(
-      MyApp(profileStore: ProfileLocalStore(preferences: preferences)),
+      MaterialApp(
+        home: ProfileScreen(
+          profileStore: ProfileLocalStore(preferences: preferences),
+        ),
+      ),
     );
     await tester.pumpAndSettle();
   }
@@ -59,7 +63,11 @@ void main() {
 
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pumpWidget(
-        MyApp(profileStore: ProfileLocalStore(preferences: preferences)),
+        MaterialApp(
+          home: ProfileScreen(
+            profileStore: ProfileLocalStore(preferences: preferences),
+          ),
+        ),
       );
       await tester.pumpAndSettle();
       expect(find.text('Ayman'), findsOneWidget);

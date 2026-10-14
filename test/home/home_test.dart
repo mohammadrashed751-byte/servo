@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:servo/feature/home/data/datasources/home_local_data_source.dart';
-import 'package:servo/feature/home/data/models/service_filters.dart';
-import 'package:servo/feature/home/data/repositories/home_repository_impl.dart';
-import 'package:servo/feature/home/domain/entities/filter_criteria.dart';
-import 'package:servo/feature/home/presentation/cubit/home_cubit.dart';
-import 'package:servo/feature/home/presentation/screen/categories_screen.dart';
-import 'package:servo/feature/home/presentation/state/home_state.dart';
-import 'package:servo/feature/home/presentation/widgets/category_icon.dart';
-import 'package:servo/feature/home/presentation/widgets/filter_bottom_sheet.dart';
+import 'package:servo/feature/user_account/home/data/datasources/home_local_data_source.dart';
+import 'package:servo/feature/user_account/home/data/models/service_filters.dart';
+import 'package:servo/feature/user_account/home/data/repositories/home_repository_impl.dart';
+import 'package:servo/feature/user_account/home/domain/entities/filter_criteria.dart';
+import 'package:servo/feature/user_account/home/presentation/cubit/home_cubit.dart';
+import 'package:servo/feature/user_account/home/presentation/screen/categories_screen.dart';
+import 'package:servo/feature/user_account/home/presentation/state/home_state.dart';
+import 'package:servo/feature/user_account/home/presentation/widgets/category_icon.dart';
+import 'package:servo/feature/user_account/home/presentation/widgets/filter_bottom_sheet.dart';
 
 const _repository = HomeRepositoryImpl(HomeLocalDataSource());
 

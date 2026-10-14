@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:servo/feature/account/data/datasources/profile_local_store.dart';
-import 'package:servo/feature/account/data/models/user_profile.dart';
+import 'package:servo/feature/user_account/account/data/datasources/profile_local_store.dart';
+import 'package:servo/feature/user_account/account/data/models/user_profile.dart';
 
 import '../support/profile_test_store.dart';
 

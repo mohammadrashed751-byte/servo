@@ -13,27 +13,26 @@ class ScreenChooseAccount extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
+        padding:  EdgeInsets.symmetric(horizontal: responsiveWidth(context, 40),vertical: responsiveHeight(context, 60)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: responsiveHeight(context, 80)),
 
             Text(
-              'Choose the account type that suits you',
+              'Choose the \n account type that \n suits you',
               style: AppTextStyles.heavyTitle,
             ),
             SizedBox(height: responsiveHeight(context, 20)),
             Text(
-              'Please select an account type to continue',
+              'Please select an account \n type to continue',
               style: AppTextStyles.textTheme.displaySmall?.copyWith(
                 color: AppColors.textSecondary,
               ),
             ),
-            SizedBox(height: responsiveHeight(context, 80)),
+            SizedBox(height: responsiveHeight(context, 50)),
             SizedBox(
-              height: responsiveHeight(context, 56),
+              height: responsiveHeight(context, 65),
               child: FilledButton(
                 onPressed: () {
                   Navigator.push(
@@ -64,11 +63,18 @@ class ScreenChooseAccount extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: responsiveWidth(context, 16)),
+            SizedBox(height: responsiveWidth(context, 30)),
             SizedBox(
-              height: responsiveHeight(context, 56),
+              height: responsiveHeight(context, 65),
               child: FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterScreen(role: 'provider'),
+                    ),
+                  );
+                },
                 style: FilledButton.styleFrom(
                   side: const BorderSide(color: AppColors.border, width: 1),
                   backgroundColor: AppColors.surface,
